@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{F93C55DB-9065-49BE-90F2-966F51C37B25}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
+    <Files>
+      <File FileName="Hubs/GameHub.cs" Line="19" Column="42" />
+      <File FileName="Startup.cs" Line="58" Column="52" />
+      <File FileName="Models/Player.cs" Line="11" Column="10" />
+      <File FileName="Models/Position.cs" Line="7" Column="8" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MultiPlayerServer" expanded="True">
+            <Node name="MultiPlayerServer" expanded="True">
+              <Node name="Hubs" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.MultiPlayerServer PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
