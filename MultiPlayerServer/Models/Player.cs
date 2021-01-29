@@ -10,5 +10,11 @@ namespace MultiPlayerServer.Models
         public Player()
         {
         }
+
+        public Player(string name, Position position)
+        {
+            Name = name;
+            Position = position;
+        }
     }
 }

@@ -6,11 +6,13 @@ export default class Communicator {
 
     constructor() {
         this.connection = new signalR.HubConnectionBuilder()
-            .withUrl("/gamehub")
+            .withUrl("https://localhost:5001/gamehub")
             .build();;
 
         this.connection.start()
-            .then(() => this.connection.invoke("Join", "player", 0, 0));
+            .then(() => this.connection.invoke("Join", "player", 0, 0))
+            .then(() => console.log(`joind`))
+            .catch(err => console.error(err));
 
         this.setupResivers();
     }

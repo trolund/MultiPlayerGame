@@ -591,11 +591,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/troelslund/Documents/Code/MultiPlayerServer/MultiPlayerServer.csproj",
+      "projectUniqueName": "/Users/troelslund/Documents/Code/MultiplayerGame/MultiPlayerServer/MultiPlayerServer.csproj",
       "projectName": "MultiPlayerServer",
-      "projectPath": "/Users/troelslund/Documents/Code/MultiPlayerServer/MultiPlayerServer.csproj",
+      "projectPath": "/Users/troelslund/Documents/Code/MultiplayerGame/MultiPlayerServer/MultiPlayerServer.csproj",
       "packagesPath": "/Users/troelslund/.nuget/packages/",
-      "outputPath": "/Users/troelslund/Documents/Code/MultiPlayerServer/obj/",
+      "outputPath": "/Users/troelslund/Documents/Code/MultiplayerGame/MultiPlayerServer/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/troelslund/.config/NuGet/NuGet.Config"

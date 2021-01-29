@@ -27,13 +27,14 @@ namespace MultiPlayerServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllers();
             services.AddSignalR();
+            services.AddControllers();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MultiPlayerServer", Version = "v1" });
             });
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +47,14 @@ namespace MultiPlayerServer
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MultiPlayerServer v1"));
             }
 
+            app.UseCors(builder =>
+            {
+                builder.WithOrigins("http://localhost:10001")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials();
+            });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -55,7 +64,7 @@ namespace MultiPlayerServer
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<GameHub>("/gamehub");
+                endpoints.MapHub<GameHub>("gamehub");
             });
 
             

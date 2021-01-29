@@ -21,8 +21,8 @@ namespace MultiPlayerServer.Hubs
 
         public async Task Join(string name, float x, float y)
         {
-
-            Players.Add(Id++, new Player());
+            Players.Add(Id++, new Player(name, new Position(x, y)));
+            Console.WriteLine(Players.ToString());
             await Clients.All.SendAsync("playerJoined", Players);
         }
 

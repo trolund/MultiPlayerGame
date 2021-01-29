@@ -3,8 +3,8 @@
     <Files>
       <File FileName="Hubs/GameHub.cs" Line="19" Column="42" />
       <File FileName="Startup.cs" Line="58" Column="52" />
-      <File FileName="Models/Player.cs" Line="11" Column="10" />
-      <File FileName="Models/Position.cs" Line="7" Column="8" />
+      <File FileName="Models/Player.cs" />
+      <File FileName="Models/Position.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,9 +17,6 @@
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

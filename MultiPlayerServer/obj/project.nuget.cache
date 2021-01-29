@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mN38RB32p/ctrmfLGx3lGLwLMa/2IQ/eM0BvL6gzCFHtCIsG8jLtTwqcEUrrQaWDkjctNsj8qYdx9Pv6BRQADA==",
+  "dgSpecHash": "wXL2QdDaDcsL8QWXarBVpjRLkSCO6GOXbIQkummBhOUnkC+mZ88q1xSJE937RV2zL/nWyYQvxm6Wtz6SWWRZ2w==",
   "success": true,
-  "projectFilePath": "/Users/troelslund/Documents/Code/MultiPlayerServer/MultiPlayerServer.csproj",
+  "projectFilePath": "/Users/troelslund/Documents/Code/MultiplayerGame/MultiPlayerServer/MultiPlayerServer.csproj",
   "expectedPackageFiles": [
     "/Users/troelslund/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/5.0.0/microsoft.aspnetcore.authentication.jwtbearer.5.0.0.nupkg.sha512",
     "/Users/troelslund/.nuget/packages/microsoft.aspnetcore.authentication.openidconnect/5.0.0/microsoft.aspnetcore.authentication.openidconnect.5.0.0.nupkg.sha512",
