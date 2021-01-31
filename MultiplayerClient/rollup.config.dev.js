@@ -37,7 +37,7 @@ export default {
 
         //  Parse our .ts source files
         resolve({
-            extensions: [ '.ts', '.tsx' ]
+            extensions: ['.ts', '.tsx']
         }),
 
         //  We need to convert the Phaser 3 CJS modules into a format Rollup can use:
@@ -46,7 +46,7 @@ export default {
                 'node_modules/eventemitter3/**',
                 'node_modules/phaser/**'
             ],
-            exclude: [ 
+            exclude: [
                 'node_modules/phaser/src/polyfills/requestAnimationFrame.js'
             ],
             sourceMap: true,

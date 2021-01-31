@@ -16,5 +16,10 @@ namespace MultiPlayerServer.Models
             this.X = x;
             this.Y = y;
         }
+
+        public override string ToString()
+        {
+            return "x: " + X + " y: " + Y;
+        }
     }
 }

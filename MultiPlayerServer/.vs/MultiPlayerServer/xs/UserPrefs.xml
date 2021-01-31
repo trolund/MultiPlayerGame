@@ -1,19 +1,20 @@
 ﻿<Properties StartupConfiguration="{F93C55DB-9065-49BE-90F2-966F51C37B25}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Hubs/GameHub.cs">
     <Files>
-      <File FileName="Hubs/GameHub.cs" Line="19" Column="42" />
-      <File FileName="Startup.cs" Line="58" Column="52" />
+      <File FileName="Hubs/GameHub.cs" Line="17" Column="10" />
+      <File FileName="Startup.cs" />
       <File FileName="Models/Player.cs" />
-      <File FileName="Models/Position.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MultiPlayerServer" expanded="True">
             <Node name="MultiPlayerServer" expanded="True">
-              <Node name="Hubs" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Hubs" expanded="True">
+                <Node name="GameHub.cs" selected="True" />
+              </Node>
               <Node name="Models" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>

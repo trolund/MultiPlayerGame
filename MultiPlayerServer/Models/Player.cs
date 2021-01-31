@@ -11,8 +11,9 @@ namespace MultiPlayerServer.Models
         {
         }
 
-        public Player(string name, Position position)
+        public Player(long id, string name, Position position)
         {
+            Id = id;
             Name = name;
             Position = position;
         }

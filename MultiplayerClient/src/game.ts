@@ -1,26 +1,20 @@
 import 'phaser';
-import Communicator from './communicator';
+import Menu from './battlegound';
 
 export default class Demo extends Phaser.Scene {
 
-    com = new Communicator();
-
     constructor() {
-        super('demo');
-
-    }
-
-    preload() {
-        this.load.glsl('stars', 'assets/starfields.glsl.js');
+        super({ key: 'Menu' })
     }
 
     create() {
-        this.add.shader('Plasma', 0, 412, 800, 172).setOrigin(0);
+        this.add.text(0, 0, 'Click to add new Scene');
 
-        this.add.image(400, 300, 'libs');
-
-        const logo = this.add.image(400, 70, 'logo');
+        this.input.once('pointerdown', function () {
+            this.scene.add('MainScene', Menu, true)
+        }, this);
     }
+
 }
 
 const config = {
@@ -28,7 +22,12 @@ const config = {
     backgroundColor: '#125555',
     width: 800,
     height: 600,
-    scene: Demo
+    scene: Demo,
+    fps: { min: 20 },
+    physics: {
+        default: 'arcade',
+        arcade: { debug: true },
+    },
 };
 
 const game = new Phaser.Game(config);

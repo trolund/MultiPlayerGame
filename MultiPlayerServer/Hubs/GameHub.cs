@@ -13,28 +13,22 @@ namespace MultiPlayerServer.Hubs
         public static Dictionary<long, Player> Players = new Dictionary<long, Player>();
         public static long Id = 0;
 
-        public async Task SendMessage(long id, Position pos)
+        public async Task SendMessage(long id, int x, int y)
         {
-            updatePlayerPosition(id, pos);
-            await Clients.All.SendAsync("playerPositions", Players);
+            updatePlayerPosition(id, new Position(x,y));
+            await Clients.Others.SendAsync("PlayerPositions", Players.ToArray());
         }
 
         public async Task Join(string name, float x, float y)
         {
-            Players.Add(Id++, new Player(name, new Position(x, y)));
-            Console.WriteLine(Players.ToString());
-            await Clients.All.SendAsync("playerJoined", Players);
+            var id = Id++;
+            Players.Add(id, new Player(id, name, new Position(x, y)));
+            await Clients.Caller.SendAsync("ConfirmedID", id);
+            await Clients.Others.SendAsync("PlayerJoined", Players.ToArray());
         }
 
         private void updatePlayerPosition(long id, Position position) {
-            Player a;
-            if (Players.TryGetValue(id, out a))
-            {
-                a.Position = position;
-                Players.Remove(id);
-                Players.Add(id, a);
-            }
-
+            Players[id] = new Player(id, Players[id].Name, position);
         }
     }
 
