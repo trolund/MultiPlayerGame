@@ -1,16 +1,18 @@
 ﻿<Properties StartupConfiguration="{F93C55DB-9065-49BE-90F2-966F51C37B25}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Hubs/GameHub.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Helpers/IdHelper.cs">
     <Files>
-      <File FileName="Hubs/GameHub.cs" Line="27" Column="30" />
+      <File FileName="Hubs/GameHub.cs" Line="13" Column="9" />
+      <File FileName="Models/Player.cs" Line="14" Column="29" />
+      <File FileName="Models/Game.cs" Line="12" Column="22" />
+      <File FileName="Helpers/IdHelper.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MultiPlayerServer" expanded="True">
             <Node name="MultiPlayerServer" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Hubs" expanded="True">
-                <Node name="GameHub.cs" selected="True" />
+              <Node name="Helpers" expanded="True">
+                <Node name="IdHelper.cs" selected="True" />
               </Node>
             </Node>
           </Node>

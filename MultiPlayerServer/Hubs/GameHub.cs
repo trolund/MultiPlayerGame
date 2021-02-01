@@ -10,25 +10,25 @@ namespace MultiPlayerServer.Hubs
 {
     public class GameHub : Hub
     {
-        public static Dictionary<long, Player> Players = new Dictionary<long, Player>();
-        public static long Id = 0;
+        public static Dictionary<string, Player> games = new Dictionary<string, Player>();
+        int Id = 0;
 
-        public async Task SendMessage(long id, int x, int y, string groupId)
+        public async Task SendMessage(string id, int x, int y, string groupId)
         {
             updatePlayerPosition(id, new Position(x,y));
-            await Clients.Group(groupId).SendAsync("PlayerPositions", Players.Select(i => i.Value).ToList());
+            await Clients.Group(groupId).SendAsync("PlayerPositions", games.Select(i => i.Value).ToList());
         }
 
         public async Task Join(string name, float x, float y, string groupId)
         {
-            var id = Id++;
-            Players.Add(id, new Player(id, name, new Position(x, y)));
+            var id = new Guid().ToString();
+            games.Add(id, new Player(id, name, new Position(x, y)));
             await Clients.Caller.SendAsync("ConfirmedID", id);
-            await Clients.Group(groupId).SendAsync("PlayerJoined", Players.Select(i => i.Value).ToList());
+            await Clients.Group(groupId).SendAsync("PlayerJoined", games.Select(i => i.Value).ToList());
         }
 
-        private void updatePlayerPosition(long id, Position position) {
-            Players[id] = new Player(id, Players[id].Name, position);
+        private void updatePlayerPosition(string id, Position position) {
+            games[id] = new Player(id, games[id].Name, position);
         }
 
         public async Task AddToGroup(string groupName)
