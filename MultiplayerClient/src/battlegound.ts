@@ -38,9 +38,7 @@ export default class Menu extends Phaser.Scene {
     setupResivers() {
         this.connection.on("PlayerPositions", (data) => {
             // update the objects
-            if (data) {
-                this.objects = [...data];
-            }
+            this.objects = data;
 
             this.objects.forEach(o => {
                 const body = this.bodies.get(o.id);
@@ -54,7 +52,8 @@ export default class Menu extends Phaser.Scene {
 
         this.connection.on("PlayerJoined", (data) => {
             // create bodies of the objects
-            this.createBody([...data]);
+            console.log("PlayerJoined", data);
+            this.createBody(data);
         });
 
         this.connection.on("ConfirmedID", data => {
@@ -66,6 +65,8 @@ export default class Menu extends Phaser.Scene {
     createBody = (players: Player[]) => {
         players.forEach(o => {
             // add if it does not exist.
+            console.log("o", o);
+
             if (!this.bodies.has(o.id)) {
                 this.bodies.set(o.id, this.physics.add.sprite(o.position.x, o.position.y, 'pipe'))
             }
