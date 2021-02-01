@@ -7,7 +7,8 @@ export default class Menu extends Phaser.Scene {
     connection: signalR.HubConnection;
     playerId: number;
 
-    updateFrekvens: number = 20;
+    updateFrekvens: number = 30;
+    movementSpeed: number = 1;
 
     objects: Player[];
     bodies = new Map<number, Phaser.Types.Physics.Arcade.SpriteWithDynamicBody>();
@@ -44,8 +45,19 @@ export default class Menu extends Phaser.Scene {
                 const body = this.bodies.get(o.id);
 
                 if (body) {
-                    body.setX(o.position.x);
-                    body.setY(o.position.y);
+                    // body.setX(o.position.x);
+                    // body.setY(o.position.y);
+                    this.tweens.add({
+                        targets: body,
+                        x: o.position.x,
+                        y: o.position.y,
+                        ease: 'Power0',
+                        duration: this.updateFrekvens,
+                        // onStart: function () { console.log('onStart'); console.log(arguments); },
+                        // onComplete: function () { console.log('onComplete'); console.log(arguments); },
+                        // onYoyo: function () { console.log('onYoyo'); console.log(arguments); },
+                        // onRepeat: function () { console.log('onRepeat'); console.log(arguments); },
+                    });
                 }
             })
         });
@@ -65,9 +77,7 @@ export default class Menu extends Phaser.Scene {
     createBody = (players: Player[]) => {
         players.forEach(o => {
             // add if it does not exist.
-            console.log("o", o);
-
-            if (!this.bodies.has(o.id)) {
+            if (!this.bodies.has(o.id) && o.id !== this.playerId) {
                 this.bodies.set(o.id, this.physics.add.sprite(o.position.x, o.position.y, 'pipe'))
             }
         })
@@ -97,20 +107,20 @@ export default class Menu extends Phaser.Scene {
 
     inputControl = () => {
         if (this.input.keyboard.checkDown(this.cursors.left, this.updateFrekvens)) {
-            this.player.x -= 5;
+            this.player.x -= this.movementSpeed;
             this.sendPlayerInfo(this.playerId, { x: this.player.x, y: this.player.y } as Position);
         }
         else if (this.input.keyboard.checkDown(this.cursors.right, this.updateFrekvens)) {
-            this.player.x += 5;
+            this.player.x += this.movementSpeed;
             this.sendPlayerInfo(this.playerId, { x: this.player.x, y: this.player.y } as Position);
         }
 
         if (this.input.keyboard.checkDown(this.cursors.up, this.updateFrekvens)) {
-            this.player.y -= 5;
+            this.player.y -= this.movementSpeed;
             this.sendPlayerInfo(this.playerId, { x: this.player.x, y: this.player.y } as Position);
         }
         else if (this.input.keyboard.checkDown(this.cursors.down, this.updateFrekvens)) {
-            this.player.y += 5;
+            this.player.y += this.movementSpeed;
             this.sendPlayerInfo(this.playerId, { x: this.player.x, y: this.player.y } as Position);
         }
     }
